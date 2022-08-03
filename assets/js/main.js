@@ -33,3 +33,23 @@ randomNumberPromise.then((number)=>{
     console.log('============================================');
 });
 
+
+/*
+3) используя async/await реализуйте функцию deleay:
+.
+console.log('first call');
+deleay(4000); // здесь код должен ждать 4 секунды и не идти дальше
+console.log('second call');
+*/
+
+async function deleay (time) {
+    let setTime = new Promise((resolve) => {setTimeout(()=>{resolve()}, time)});
+    await setTime;
+};
+
+(async function func() {
+    console.log('first call');
+    await deleay(4000);
+    console.log('second call');
+})();
+
